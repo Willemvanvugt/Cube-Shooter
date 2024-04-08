@@ -33,12 +33,14 @@ public class Menu : MonoBehaviour
     {
         Time.timeScale = 0;
         menuCanvas.SetActive(true);
+        Debug.Log("Game was paused.");
     }
 
     public void ResumeGame()
     {
         Time.timeScale = 1;
         menuCanvas.SetActive(false);
+        Debug.Log("Game was resumed.");
     }
 
     public void ExitGame()
