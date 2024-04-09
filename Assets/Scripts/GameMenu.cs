@@ -12,7 +12,7 @@ public class GameMenu : MonoBehaviour
 
     private void Start() //Enables the game mode when starting the game.
     {
-        GameMode();
+        GameMode(); //ABSTRACTION
         Debug.Log("Game was started.");
     }
 
@@ -21,7 +21,7 @@ public class GameMenu : MonoBehaviour
         if (Input.GetKeyDown(menuButton))
         {
             Debug.Log("Menu button was pressed.");
-            PauseGame();
+            PauseGame(); //ABSTRACTION
         }
 
     }
