@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class HomeMenu : MonoBehaviour
 {
+    public static string playerNameInput { get; private set; }
+    
     public void StartGame()
     {
         SceneManager.LoadScene(1);
@@ -20,5 +22,11 @@ public class HomeMenu : MonoBehaviour
 #else
         Application.Quit();
 #endif
+    }
+
+    public void ReadStringInput(string playerNameString)
+    {
+        playerNameInput = playerNameString;
+        Debug.Log("Player name is " + playerNameString);
     }
 }
