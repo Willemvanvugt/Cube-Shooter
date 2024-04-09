@@ -242,6 +242,7 @@ MonoBehaviour:
   menuButton: 27
   menuParent: {fileID: 437226112}
   reticleImage: {fileID: 655813021}
+  playerController: {fileID: 197982738}
 --- !u!1 &98062196
 GameObject:
   m_ObjectHideFlags: 0

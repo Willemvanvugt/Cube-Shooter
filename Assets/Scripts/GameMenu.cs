@@ -8,6 +8,7 @@ public class GameMenu : MonoBehaviour
     public KeyCode menuButton; //Key for displaying the menu.
     public GameObject menuParent; //Game object containing the Resume and Menu buttons.
     public GameObject reticleImage; //Game object containing the reticle image.
+    public PlayerController playerController;
 
     private void Start() //Enables the game mode when starting the game.
     {
@@ -32,6 +33,7 @@ public class GameMenu : MonoBehaviour
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         reticleImage.SetActive(false);
+        playerController.enabled = false;
         Debug.Log("Game was paused.");
     }
 
@@ -54,6 +56,7 @@ public class GameMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         reticleImage.SetActive(true);
+        playerController.enabled = true;
         Debug.Log("Game mode was enabled.");
     }
 }
