@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class HomeMenu : MonoBehaviour
 {
-    public static string playerNameInput { get; private set; }
+    public static string playerNameInput;
     
     public void StartGame()
     {
