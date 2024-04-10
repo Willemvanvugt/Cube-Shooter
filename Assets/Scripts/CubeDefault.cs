@@ -17,6 +17,8 @@ public class CubeDefault : MonoBehaviour
 
     private GameManager gameManager;
 
+    private GameMenu gameMenu;
+
     public virtual void Start()
     {
         force = 0.2f;
@@ -28,6 +30,8 @@ public class CubeDefault : MonoBehaviour
 
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         pointValue = 2;
+
+        gameMenu = GameObject.Find("Canvas - Game").GetComponent<GameMenu> ();
 
         CubeTransform();
     }
@@ -62,6 +66,7 @@ public class CubeDefault : MonoBehaviour
         {
             Debug.Log(cubeName + " collided with player.");
             Destroy(gameObject);
+            gameMenu.GameOver();
         }
     }
 

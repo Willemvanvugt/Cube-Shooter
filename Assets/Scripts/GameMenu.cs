@@ -59,4 +59,12 @@ public class GameMenu : MonoBehaviour
         playerController.enabled = true;
         Debug.Log("Game mode was enabled.");
     }
+
+    public void GameOver()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        SceneManager.LoadScene(2);
+        Debug.Log("Game over.");
+    }
 }

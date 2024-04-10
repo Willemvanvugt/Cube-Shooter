@@ -14,6 +14,12 @@ public class HomeMenu : MonoBehaviour
         Debug.Log("Scene 1 was loaded.");
     }
 
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(0);
+        Debug.Log("Game was restarted.");
+    }
+
     public void ExitGame()
     {
 #if UNITY_EDITOR
