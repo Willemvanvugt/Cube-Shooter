@@ -19,12 +19,30 @@ public class SpawnManager : MonoBehaviour
         InvokeRepeating("SpawnRandomCube", spawnStartDelay, spawnInterval);
     }
 
-    private void SpawnRandomCube()
+    private void Update()
     {
-        int cubeIndex = Random.Range(0, cubes.Length);
-        Vector3 spawnPos = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), 1, Random.Range(-2, spawnRangeZ));
-        Instantiate(cubes[cubeIndex], spawnPos, cubes[cubeIndex].transform.rotation);
-        cubeName = cubes[cubeIndex].name;
-        Debug.Log(cubeName + " was spawned.");
+        SpawnWave();
+    }
+
+    private void SpawnWave()
+    {
+        cubeCount = GameObject.FindGameObjectsWithTag("Enemy").Length;
+        if (cubeCount == 0)
+        {
+            waveNumber++; SpawnRandomCube(waveNumber);
+            Debug.Log("Wave " + waveNumber + ".");
+        }
+    }
+
+    private void SpawnRandomCube(int cubesToSpawn)
+    {
+        for (int i = 0; i < cubesToSpawn; i++)
+        {
+            int cubeIndex = Random.Range(0, cubes.Length);
+            Vector3 spawnPos = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), 1, Random.Range(-2, spawnRangeZ));
+            Instantiate(cubes[cubeIndex], spawnPos, cubes[cubeIndex].transform.rotation);
+            cubeName = cubes[cubeIndex].name;
+            Debug.Log(cubeName + " was spawned.");
+        }
     }
 }

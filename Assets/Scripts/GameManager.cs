@@ -6,10 +6,19 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public TextMeshProUGUI playerName;
+    public int score;
+    public TextMeshProUGUI scoreText;
 
     private void Start()
     {
         playerName.text = HomeMenu.playerNameInput;
+        UpdateScore(0);
+        score = 0;
     }
 
+    public void UpdateScore(int scoreToAdd)
+    {
+        score += scoreToAdd;
+        scoreText.text = "Score: " + score;
+    }
 }

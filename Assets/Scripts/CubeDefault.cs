@@ -1,24 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CubeDefault : MonoBehaviour
 {
     private Rigidbody cubeRb;
     private GameObject player;
-    public int force;
+    public float force;
+
     public int pointValue;
+
     public GameObject cube;
     public string cubeName;
 
+    private GameManager gameManager;
+
     public virtual void Start()
     {
-        cubeName = cube.name;
+        force = 0.2f;
         cubeRb = GetComponent<Rigidbody>();
+
         player = GameObject.FindGameObjectWithTag("Player");
-        force = 1;
+
+        cubeName = cube.name;
+
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         pointValue = 2;
+
         CubeTransform();
     }
 
@@ -42,5 +52,17 @@ public class CubeDefault : MonoBehaviour
     {
         Destroy(gameObject);
         Debug.Log(cubeName + " was destroyed.");
+        gameManager.UpdateScore(pointValue);
+        Debug.Log("Score was increased by " + pointValue);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            Debug.Log(cubeName + " collided with player.");
+            Destroy(gameObject);
+        }
+    }
+
 }
