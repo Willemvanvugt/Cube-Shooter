@@ -9,5 +9,6 @@ public class CubeFaster : CubeDefault //INHERITANCE
     {
         base.Start();
         force = 2;
+        pointValue = 3;
     }
 }

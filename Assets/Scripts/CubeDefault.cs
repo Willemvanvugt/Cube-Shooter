@@ -8,12 +8,17 @@ public class CubeDefault : MonoBehaviour
     private Rigidbody cubeRb;
     private GameObject player;
     public int force;
+    public int pointValue;
+    public GameObject cube;
+    public string cubeName;
 
     public virtual void Start()
     {
+        cubeName = cube.name;
         cubeRb = GetComponent<Rigidbody>();
         player = GameObject.FindGameObjectWithTag("Player");
         force = 1;
+        pointValue = 2;
         CubeTransform();
     }
 
@@ -31,5 +36,11 @@ public class CubeDefault : MonoBehaviour
     public virtual void CubeTransform()
     {
         transform.localScale = new Vector3(1, 1, 1);
+    }
+
+    private void OnMouseDown()
+    {
+        Destroy(gameObject);
+        Debug.Log(cubeName + " was destroyed.");
     }
 }
