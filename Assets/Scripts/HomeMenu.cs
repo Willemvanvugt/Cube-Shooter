@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -7,18 +8,19 @@ using UnityEngine.SceneManagement;
 public class HomeMenu : MonoBehaviour
 {
     public static string playerNameInput;
-    
+
     public void StartGame()
     {
         SceneManager.LoadScene(1);
         Debug.Log("Scene 1 was loaded.");
     }
 
-    public void RestartGame()
+    public void ReadStringInput(string playerNameString)
     {
-        SceneManager.LoadScene(0);
-        Debug.Log("Game was restarted.");
+        playerNameInput = playerNameString;
+        Debug.Log("Player name is " + playerNameString);
     }
+
 
     public void ExitGame()
     {
@@ -28,11 +30,5 @@ public class HomeMenu : MonoBehaviour
 #else
         Application.Quit();
 #endif
-    }
-
-    public void ReadStringInput(string playerNameString)
-    {
-        playerNameInput = playerNameString;
-        Debug.Log("Player name is " + playerNameString);
     }
 }

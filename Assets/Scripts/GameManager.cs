@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI playerName;
     public int score;
     public TextMeshProUGUI scoreText;
+    public static string scoreString;
 
     private void Start()
     {
@@ -20,5 +21,6 @@ public class GameManager : MonoBehaviour
     {
         score += scoreToAdd;
         scoreText.text = "Score: " + score;
+        scoreString = scoreText.text;
     }
 }
