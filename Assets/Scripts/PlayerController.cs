@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        mouseSensitivity = 2.5f;
+        mouseSensitivity = 1.0f;
         Debug.Log("Mouse senstivity set to " + mouseSensitivity);
     }
 
