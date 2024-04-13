@@ -10,6 +10,22 @@ public class CubeDefault : MonoBehaviour
     private GameObject player;
     public float force;
 
+    public float Force //Encapsulation
+    {
+        get { return force; }
+        set
+        {
+            if (value > 0.4f)
+            {
+                force = 0.4f;
+            }
+            else
+            {
+                force = value;
+            }
+        }
+    }
+
     public int pointValue;
 
     public GameObject cube;
@@ -31,7 +47,7 @@ public class CubeDefault : MonoBehaviour
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         pointValue = 2;
 
-        gameMenu = GameObject.Find("Canvas - Game").GetComponent<GameMenu> ();
+        gameMenu = GameObject.Find("Canvas - Game").GetComponent<GameMenu>();
 
         CubeTransform();
     }
